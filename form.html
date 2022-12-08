@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title> Formulaire </title>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<script language="JavaScript">
+   
+   $(document).ready(function(){
+    $(".error").hide();
+    $("#submit").click(function(event){
+        if($("#Prenom").val()== ""){
+            $(".pre").show();
+            event.preventDefault();
+        }
+        else{
+            $(".pre").hide(); 
+        }
+        if($("#Nom").val() == ""){
+            $(".nom").show();
+            event.preventDefault();
+        }
+        else{
+            $(".nom").hide(); 
+        }
+        if($("#email").val() == ""){
+             $(".email").show();
+             event.preventDefault();
+        }
+        else{
+            $(".email").hide(); 
+        }
+
+        if((($("#male")).prop("checked") )||
+        (($("#female")).prop("checked") )){
+            $(".genreerr").hide(); 
+        }
+        else{
+             $(".genreerr").show();
+             event.preventDefault();
+        }
+
+        if((($("#1")).prop("checked") == true)||
+        (($("#2")).prop("checked") == true)||
+        (($("#3")).prop("checked") == true)||
+        (($("#4")).prop("checked") == true)){
+            $(".com").hide(); 
+        }
+        else{
+            $(".com").show();
+            event.preventDefault();
+        }
+    
+    });
+});
+
+</script>
+<form id="mainForm">
+<fieldset>
+<legend>Vos coordonnées*</legend><br>
+    <label>Prenom :</label> 
+	<input type="text" placeholder="PRENOM" id="Prenom">
+    <label class="error pre">Veuiller fournir votre Prenom </label>
+    <br><br>
+    <label>Nom :</label> 
+	<input type="text" placeholder="NOM" id="Nom">
+    <label class="error nom">Veuiller fournir votre Nom </label>
+    <br><br>
+    <label>Email :</label> 
+	<input type="email" placeholder="EMAIL" id="email" >
+    <label class="error email">Veuiller fournir votre Email </label><br><br>
+    <label>Pays :</label> <br>
+    <select name="pays" class="payss"> 
+        <option></option>
+        <option class="pays" value="france">France</option>
+        <option class="pays" value="espagne">Espagne</option>
+        <option class="pays" value="italie">Italie</option>
+        <option class="pays" value="royaume-uni">Royaume-Uni</option>
+        <option class="pays" value="canada">Canada</option>
+        <option class="pays" value="etats-unis">États-Unis</option>
+    </select>
+    <label class="error payserr">Veuiller choisir un pays </label>
+    <br><br>
+    <label >Genre :</label> 
+    <input type="radio" name="genre" value="male" id="male" />
+    <label for="male">Homme</label>
+    <input type="radio" name="genre" value="female" id="female" />
+    <label for="female">Femme</label>
+    <label class="error genreerr">Veuiller préciser votre civilité </label><br />
+</fieldset>
+<fieldset>
+<legend>Vos compétances*</legend>
+<label class="error com">Veuiller choisir des compétances </label>
+<p>
+    <INPUT type="checkbox" name="langage" id="1" class="langage" value="html">HTML
+    <INPUT type="checkbox" name="langage" id="2" class="langage" value="css">CSS
+    <INPUT type="checkbox" name="langage" id="3" class="langage" value="php">PHP
+    <INPUT type="checkbox" name="langage" id="4" class="langage" value="sql">MySQL
+<br><br>
+Commentaires*
+<br><br>
+<TEXTAREA cols="80" rows="5" id="com"> </TEXTAREA><br/> 
+</p>
+</fieldset>
+<p>* Champs obligatoires</p>
+<INPUT type="submit" value="ENVOYER" id="submit">
+</form>
+
+
+</body>
+</html>
